@@ -203,7 +203,7 @@ nc_to_df_precip <- function(nc, long, lat, start_time, end_time) {
 #' @noRd
 uni_dates <- function(start_time, end_time) {
 
-  tme <- seq(as.POSIXlt(start_time), as.POSIXlt(end_time), by = 1)
+  tme <- seq(as.POSIXlt(start_time), as.POSIXlt(end_time), by = "hours")
   mon <- lubridate::month(tme)
   yea <- lubridate::year(tme)
   df <- data.frame(mon,yea) %>%
