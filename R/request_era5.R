@@ -26,7 +26,8 @@ request_era5 <- function(request, uid, out_path, overwrite = FALSE,
     # Check whether file already exists for requested out_path
     if (file.exists(paste0(out_path, "/", request[[req]]$target)) & !overwrite) {
       if (length(request) > 1) {
-        stop("Filename already exists within requested out_path in request ", req, " of request series. Use overwrite = TRUE if you wish to overwrite this file.")
+        warning("Filename already exists within requested out_path in request ", req, " of request series. Use overwrite = TRUE if you wish to overwrite this file.")
+        next
       } else {
         stop("Filename already exists within requested out_path. Use overwrite = TRUE if you wish to overwrite this file.")
       }
